@@ -26,7 +26,8 @@ export class PostService {
 
   async findAll() {
     try {
-      const posts = this.prisma.post.findMany();
+      const posts = await this.prisma.post.findMany();
+      console.log(posts);
       return {posts};
     } catch (error) {
       throw new BadRequestException(error.message);
